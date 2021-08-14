@@ -5,13 +5,15 @@
 此專題中使用兩種方式來處理:
 1. Matlab Toolbox中的Comb filter
 2. Chebyshev type1 IIR filter + Butterworth bandstop IIR filter  
+
 最後重新觀察頻譜確認雜訊是否被消除，並輸出成新的音檔
 
 ## 1. 原始音檔分析
 ```matlab
 [y, fs] = audioread('Lisa_noise.wav');
 sound(y ,fs)
-```
+```  
+
 播放原音檔可以透過人耳聽出有一嗡嗡作響的蜂鳴聲，推測有兩種可能:  
 可能是**單頻**或者是**以某一頻率整數倍頻的諧波**所組成  
 (人類可聽到20-20000Hz，日常說話為100-6000Hz)
@@ -20,7 +22,9 @@ sound(y ,fs)
 ![](https://i.imgur.com/uqQn3zc.png)  
 經由快速傅立葉轉換fft，將音訊化成頻譜，可以得到上圖  
 subplot第一張是該音訊中每個頻率的Magnitude，第二張則是在共計34秒長的音訊中，每秒時所有頻率的強度大小，第三張則是波型圖。
+
 ---
+
 1. 原音檔的sampling rate為 44100Hz
 2. 音檔維度為1460000x2，為左右聲道立體聲之資料，音訊取樣後的長度為1460000個採樣點
 ![](https://i.imgur.com/YiO6uJC.png)  
