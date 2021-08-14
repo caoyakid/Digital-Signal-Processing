@@ -86,4 +86,13 @@ subplot第一張是該音訊中每個頻率的Magnitude，第二張則是在共�
 ![](https://i.imgur.com/sXw4Bo0.png)  
 
 ## 5. 結論
+在本專題中，實作了FIR與IIR filter  
+Comb優點是方便，用於濾除一系列等間距的頻率
+Chebyshev + Butterworth雖較麻煩，但從頻譜可以看出在這份音檔，抑制雜訊效果較好
+
+- 參考資料:  
+http://www.ancad.com.tw/VS_Online_Help/ch03s02.html  
+
+http://users.sussex.ac.uk/~pjly20/ras100.html 
+![](https://i.imgur.com/DRzg3M2.png)  
 
