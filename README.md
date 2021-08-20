@@ -44,12 +44,13 @@ subplot第一張是該音訊中每個頻率的Magnitude，第二張則是在共�
 1. Specify order = 147  
 要設計以濾除300Hz及其整數倍諧波之雜訊的Comb filter，則在時域上以原信號減去「每1/300秒，即距離每147點（44100Hz / 300Hz）的採樣值加總一次，加總若干個週期後再平均」  
 2. Bandwidth rejection = 2Hz  
-觀察頻譜中雜訊，發現雜訊頻率與300Hz諧波之頻率相差皆小於0.5Hz，就理論而言，bandwidth rejection越小越好  
+觀察頻譜中雜訊，發現雜訊頻率與300Hz諧波之頻率相差皆小於0.5Hz，  
+就理論而言，bandwidth rejection越小越好  
 但在實作中，**過窄的bandwidth rejection和過大的衰減率，可能引發ring和phase distortion進而導致音質劣化**    
 2Hz是try and error得出的結果，增加些許bandwidth rejection以換取600.1200.1800Hz三根特別大的雜訊能大幅衰減  
 3. Apass = 20dB (雜訊衰減)
-一樣觀察頻譜中雜訊，發現FFT後abs最高的值在600Hz處，大小為2.2x10^4，只需衰減至1/10，  
-讓雜訊的振幅小於等於音樂訊號的振幅即可  
+一樣觀察頻譜中雜訊，發現FFT後abs最高的值在600Hz處，大小為2.2x10^4，  
+只需衰減至1/10，讓雜訊的振幅小於等於音樂訊號的振幅即可  
 
 如此一來，就制定好Comb filter的規格了!
 
